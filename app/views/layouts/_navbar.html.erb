@@ -1,0 +1,72 @@
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+ <div class="my-1 my-lg-0">
+    <%= link_to  root_path do %>
+    <%= image_tag 'logotop.png', class: 'img-responsive' %>
+    <% end %>
+    </div>
+  
+  <div class="collapse navbar-collapse " id="navbarSupportedContent">
+  
+    <ul class="navbar-nav mr-auto navbar-toggler-center">
+      <li class="nav-item active">
+         <%= link_to 'Главная', root_path, class: "nav-link #{yield(:news_active)}" %>
+      </li>
+
+      <li class="nav-item active">
+         <%= link_to 'Новости', news_path, class: "nav-link #{yield(:news_active)}" %>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle <% yield(:author) %>" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Вылет из...
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+        <center>
+          <%= link_to 'Молдовы',blog_posts_path(category: 'Moldova'), class: "drodown-item"  %>
+          <%= link_to 'Украины', ukraina_path , class: "dropdown-item" %>
+          </center>
+          </div>
+        </li>
+
+     
+       
+       <li class="nav-item">
+         <%= link_to 'Поиск билетов ', ticket_search_path, class: "nav-link #{yield(:ticket_search_active)}" %>
+      </li>
+
+      <li class="nav-item">
+         <%= link_to 'Обратная связь ', new_contact_path, class: "nav-link #{yield(:contacts_active)}" %>
+      </li>
+     
+      
+      <% if author_signed_in? %>
+     <li class="nav-item dropdown author-nav">
+        <a class="nav-link dropdown-toggle <% yield(:author) %>" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <%= image_tag(current_author.gravatar_image_url) %>
+        <%= current_author.display_name %>
+          
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+        <center>
+          <%= link_to 'Мои посты',authors_posts_path, class: "drodown-item"  %>
+          <br>
+          <%= link_to 'Личный кабинет',authors_account_path, class: "drodown-item" %>
+          <%= link_to 'Выход', destroy_author_session_path, method: :delete, class: "dropdown-item" %>
+          </center>
+          </div>
+        </li>
+ <% end %>
+    </ul>
+    
+   <%= form_tag(search_posts_path, :method => "get", class: "form-inline my-2 my-lg-0") do %>
+<%= text_field_tag :search, params[:search], class: "form-control mr-sm-2 ",placeholder: "Поиск по сайту"%>
+<%= submit_tag "Поиск", class: "btn btn-outline-primary my-2 my-sm-0" %>
+<% end %>
+    
+  </div>
+</nav>
+
+

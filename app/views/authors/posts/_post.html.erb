@@ -1,0 +1,12 @@
+<tr>
+<td><%= link_to post.title, authors_post_path(post) %></td>
+<td></td>
+<% if post.published? %>
+<td><%= link_to 'Отключить публикацию', unpublish_authors_post_path(post), method: :put, class: 'btn btn-sm btn-primary'%></td>
+<% else %>
+<td><%= link_to 'Опубликовать', publish_authors_post_path(post), method: :put, class: 'btn btn-sm btn-success'%></td>
+
+ <% end %>
+<td><%= link_to 'Изменить', edit_authors_post_path(post), class: 'btn btn-sm btn-warning'%></td>
+<td><%= link_to 'Удалить', authors_post_path(post), method: :delete, data: {confirm: 'Ваш пост будет удален.'},class: 'btn btn-sm btn-danger' %></td>
+</tr>

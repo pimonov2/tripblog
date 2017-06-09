@@ -1,0 +1,6 @@
+<% provide(:page_title, "Изменить #{@post.title}") %>
+<% provide(:author, 'Активировать') %>
+
+
+<%= render 'form', post: @post, url: authors_post_url(@post) %>
+

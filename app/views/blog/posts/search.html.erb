@@ -1,0 +1,19 @@
+<% provide(:page_title, 'Поиск') %>
+<% provide(:blog_active, 'active') %>
+
+<div class="row">
+
+ 
+<% if @posts.present? %>
+<%= render @posts %>
+
+
+  <% else %>
+  <p> К сожалению по запросу "<%= params[:search] %>"ничего не найдено.</p>
+
+
+ <% end %>
+
+ </div>
+
+

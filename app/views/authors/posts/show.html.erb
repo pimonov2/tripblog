@@ -1,0 +1,18 @@
+<% provide(:page_title, @post.title) %>
+<% provide(:author, 'active') %>
+<br>
+<div>
+	<%= link_to 'Изменить',edit_authors_post_path(@post), class: 'btn btn-sm btn-warning'%>
+	<%= link_to 'Удалить', authors_post_path(@post), method: :delete, data: {confirm: 'Вы уверенны?'},class: 'btn btn-sm btn-danger' %>
+</div>
+<br>
+
+<div class="row">
+<div class="col-md-10 offset-md-1" col-lg-8 offset-lg-2 text-xs-center">
+<h1><%= @post.title %> </h1>
+<p> <%= @post.display_day_published %> </p>
+<%= @post.body.html_safe %>
+</div>
+
+
+	
