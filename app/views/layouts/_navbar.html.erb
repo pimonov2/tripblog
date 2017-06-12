@@ -16,7 +16,7 @@
       </li>
 
       <li class="nav-item active">
-         <%= link_to 'Новости', news_path, class: "nav-link #{yield(:news_active)}" %>
+         <%= link_to 'Новости', index_path(category: 'News'), class: "nav-link #{yield(:news_active)}" %>
       </li>
 
       <li class="nav-item dropdown">
@@ -25,8 +25,8 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
         <center>
-          <%= link_to 'Молдовы',blog_posts_path(category: 'Moldova'), class: "drodown-item"  %>
-          <%= link_to 'Украины', ukraina_path , class: "dropdown-item" %>
+          <%= link_to 'Молдовы',index_path(category: 'Moldova'), class: "drodown-item"  %>
+          <%= link_to 'Украины', index_path(category: 'Ukraina') , class: "dropdown-item" %>
           </center>
           </div>
         </li>

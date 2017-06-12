@@ -1,6 +1,21 @@
 @import "bootstrap";
+@import "home";
 @import "util";
 @import "colors";
+@import "social-share-button";
 @import "navbar";
 @import "posts";
 @import "footer";
+
+
+$size:27px;
+
+.social-share-button {
+  .ssb-icon {
+    background-size: $size $size;
+    height: $size;
+    width: $size;
+  }
+}
+
+

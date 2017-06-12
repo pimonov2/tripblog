@@ -15,6 +15,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+//#= require social-share-button
 
 document.addEventListener("turbolinks:load", function() {
 tinymce.remove();
@@ -26,3 +27,4 @@ tinymce.init({
    });
 
 })
+

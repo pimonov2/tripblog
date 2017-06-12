@@ -6,7 +6,13 @@ module Blog
   
 
 def index
-  @posts = storage.list_for(params[:page], params[:tag])
+  posts = storage
+  if params[:category].present?
+     category = Category.find_by_name(params[:category])
+     posts = posts.where(category_id: category)
+  end
+  @posts = posts.list_for(params[:page], params[:tag])
+  
 
 end
 
@@ -23,14 +29,7 @@ def search
 @posts = Post.search(params[:search])
 end
 
-def category
-  if params[:category].present?
-     category = Category.find_by_name(params[:category])
-     @posts = @posts.where(category_id: category)
-  end
-  
-end
- 
+
 
   private
 

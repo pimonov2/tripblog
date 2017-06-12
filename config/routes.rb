@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
   devise_for :authors
-  root to: 'blog/posts#index' 
+  root to: 'blog/posts#home'
+ 
 
   resources :contacts, only: [:new, :create]
  
@@ -22,13 +23,13 @@ Rails.application.routes.draw do
 
     get 'about' => 'pages#about', as: :about
     
-   resources :posts, only: [:index, :show] do
-  get :Moldova, on: :collection
-   get :search, on: :collection
+    resources :posts, only: [:index, :show] do
+    get :search, on: :collection
    end
-    get 'news' => 'pages#news', as: :news
+    get 'index' => 'posts#index', as: :index
+
     
-    get 'ukraina' => 'pages#ukraina', as: :ukraina
+    
     get 'ticket_searcht' => 'pages#ticket_search', as: :ticket_search
 
   end

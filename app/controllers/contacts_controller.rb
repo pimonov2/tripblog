@@ -10,7 +10,7 @@ class ContactsController < ApplicationController
 		  if @contact.deliver
 		  	flash.now[:error] = nil
 		  else
-		  	flash.now[:error] = 'Сообщение не отправленно.'
+		  	flash.now[:error] = 'Сообщение не отправлено.'
 		  render :new
 		end
 	end

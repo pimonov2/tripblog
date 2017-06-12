@@ -28,7 +28,7 @@ end
 
 def display_day_published
 	 if published_at.present?
-	"Опубликовано:#{published_at.strftime('%-b %-d, %Y')}"
+	"Опубликовано:#{published_at.strftime('%m, %-d, %Y')}"
 else
 	"Еще не опубликовано"
 end
